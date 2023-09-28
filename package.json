@@ -1,0 +1,29 @@
+{
+  "name": "parse-csv-stream",
+  "version": "1.0.0",
+  "description": "Parse any csv file via stream or csv stream from any other source in Node.js for various usecases like database insertion, logging, file creation, batch processing data etc.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayushpratap2494/parse-csv-stream.git"
+  },
+  "keywords": [
+    "csv-stream",
+    "parse-csv",
+    "parse-csv-stream",
+    "csv-2-json",
+    "csv-json-stream",
+    "csv-json",
+    "csv",
+    "csv-parser"
+  ],
+  "author": "Ayush Pratap",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ayushpratap2494/parse-csv-stream/issues"
+  },
+  "homepage": "https://github.com/ayushpratap2494/parse-csv-stream#readme"
+}

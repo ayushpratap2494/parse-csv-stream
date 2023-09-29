@@ -23,19 +23,30 @@ const options = {
 const parser = new parse_csv(options);
 const events = parser.events;
 
-//There are 2 approaches you can take : events, stream, choose any one.
+/*
+There are 2 approaches you can take : 
+[A.] events. 
+[B.] streams.
 
-// [1.] working with events.
+There are 3 ways to handle data : 
+[1.] Process each row seperately via events.
+[2.] Process resultset (array of rows).
+[3.] Pipe parsed stream.
+ 
+ choose any one.
+*/
+
+// [A.] working with events.
 events.on('data', (row) => {
-    console.log(row);
+    console.log(row); //process each row seperately.
 })
 
 readStream.on('data', (chunk) => {
-    parser.parse(chunk);
+   let resultset =  parser.parse(chunk); //process resultset (array of rows).
 });
 
-//[2.] Working with streams.
-readStream.pipe(parser).pipe(writeStream);
+//[B.] Working with streams.
+readStream.pipe(parser).pipe(writeStream); //pipe parsed stream.
 ```
 
 ## Built With

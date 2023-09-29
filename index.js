@@ -16,7 +16,7 @@ class ParseCSVstream extends Transform {
         this.wrapper = wrapper;
         this.newlineSeperator = newlineSeperator;
         this.headers = null;
-        this.skipHeaders = false;
+        this.skipHeaders = true;
     }
 
     parse(chunk) {
@@ -48,7 +48,7 @@ class ParseCSVstream extends Transform {
             batch.push(row);
         }
 
-        this.skipHeaders = true;
+        this.skipHeaders = false;
 
         //Do something with the batch.
         batch.forEach(row => {

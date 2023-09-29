@@ -1,6 +1,6 @@
 {
   "name": "parse-csv-stream",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Parse any csv file via stream or csv stream from any other source in Node.js for various usecases like database insertion, logging, file creation, batch processing data etc.",
   "main": "index.js",
   "scripts": {

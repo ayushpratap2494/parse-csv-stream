@@ -15,6 +15,8 @@ class ParseCSVstream extends Transform {
         this.delimiter = delimiter;
         this.wrapper = wrapper;
         this.newlineSeperator = newlineSeperator;
+        this.headers = null;
+        this.skipHeaders = false;
     }
 
     parse(chunk) {
@@ -23,25 +25,30 @@ class ParseCSVstream extends Transform {
         let lines = chunk.split(this.newlineSeperator);
 
         //create headers.
-        let headers = this.processLine(lines[0], this.delimiter, this.wrapper);
+        if (!this.headers) {
+            this.headers = this.processLine(lines[0], this.delimiter, this.wrapper);
+        }
 
         //create batches of json objects for remaining rows.
         let batch = [];
 
         //Create new row for each line.
-        for (let i = 1; i < lines.length; i++) {
+        let i = this.skipHeaders ? 1 : 0;
+        for (i; i < lines.length; i++) {
 
             let line = this.processLine(lines[i], this.delimiter, this.wrapper);
 
             let row = {};
 
             //For each header assign properties to row.
-            for (let j = 0; j < headers.length; j++) {
-                row[headers[j]] = line[j] ? line[j] : undefined;
+            for (let j = 0; j < this.headers.length; j++) {
+                row[this.headers[j]] = line[j] ? line[j] : undefined;
             }
 
             batch.push(row);
         }
+
+        this.skipHeaders = true;
 
         //Do something with the batch.
         batch.forEach(row => {

@@ -2,7 +2,7 @@
 
 # parse-csv-stream
 
-> Parse any csv file via stream or csv stream from any other source in Node.js for various usecases like database insertion, logging, file creation, batch processing data etc.
+> Parse csv files via stream or parse any csv stream from various sources in Node.js for different usecases like batch processing, database insertion, logging, file creation & data transformations etc. Support for large csv files added.
 
 Example:
 
